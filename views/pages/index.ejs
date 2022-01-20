@@ -9,54 +9,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="item">
-        <div class="quantity_container">
-          <label for="quantity">Quantity</label>
-          <input
-            type="number"
-            placeholder="Type quantity"
-            onkeyup="displayItems(event)"
-          />
-        </div>
-      </div>
+      <%- include('../partials/nav'); %> 
 
       <div class="content" id="root">
-          <h3 style="text-align: center; margin: 1rem 0;">The items will be displayed here</h3 style="text-align: center; margin: 1rem 0;">
+          <h3 style="text-align: center; margin: 1rem 0;">The items will be displayed here</h3>
       </div>
     </div>
   </body>
-  <script>
-    let root,
-      counter = 1;
-
-    window.addEventListener("load", (event) => {
-      root = document.getElementById("root");
-    });
-
-    function displayItems(e) {
-      let value = parseInt(e.target.value);
-    counter = 1;
-    createItem(value);
-    }
-
-    function clearEl(el) {
-      while (el.firstChild) {
-        el.removeChild(el.firstChild);
-      }
-    }
-
-    function createItem(count) {
-      clearEl(root);
-      for (let i = 0; i < count; i++) {
-        let item = document.createElement("div");
-        item.classList.add("card");
-        let span = document.createElement("span");
-        span.classList.add("card-number");
-        span.innerHTML = counter;
-        item.appendChild(span);
-        root.appendChild(item);
-        counter = counter + 1;
-      }
-    }
+  <script src="js/app.js">
+   
   </script>
 </html>
